@@ -11,10 +11,12 @@ let score = 0
 let timerId;
 const colors = [
     'orange',
+    'blue',
     'red',
-    'purple',
     'green',
-    'blue'
+    'purple',
+    '#c6b300',//yellow
+    '#03c8b2' //blue
   ]
 
 const width = 10;
@@ -26,11 +28,27 @@ const lTetromino = [
     [width, width*2, width*2+1, width*2+2]
 ]
 
+const l2Tetromino = [
+  [0,1, width+1, width*2+1],
+  [width, width+1, width+2, 2],
+  [1, width+1, width*2+1, width*2+2],
+  [width, width+1, width+2, width*2]
+]
+
+
 const zTetromino = [
     [0,width,width+1,width*2+1],
     [width+1, width+2,width*2,width*2+1],
     [0,width,width+1,width*2+1],
     [width+1, width+2,width*2,width*2+1]
+  ]
+
+
+  const z2Tetromino = [
+    [2,width+2,width+1,width*2+1],
+    [width, width+1,width*2+1,width*2+2],
+    [2,width+2,width+1,width*2+1],
+    [width, width+1,width*2+1,width*2+2]
   ]
 
   const tTetromino = [
@@ -54,7 +72,7 @@ const zTetromino = [
     [width,width+1,width+2,width+3]
   ]
 
-  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+  const theTetrominoes = [lTetromino,l2Tetromino, zTetromino,z2Tetromino, tTetromino, oTetromino, iTetromino]
 
   let currentPosition = 4
   let currentRotation = 0
@@ -153,7 +171,7 @@ const zTetromino = [
     if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
       current.forEach(index => squares[currentPosition + index].classList.add('taken'))
       //start a new tetromino falling
-      genTetromino();
+      newTetromino();
       draw()
       displayShape()
       addScore()
@@ -161,7 +179,7 @@ const zTetromino = [
     }
   }
 
-  function genTetromino(){
+  function newTetromino(){
     random = nextRandom
     nextRandom = Math.floor(Math.random() * theTetrominoes.length)
     current = theTetrominoes[random][currentRotation]
@@ -176,7 +194,9 @@ const zTetromino = [
 
     const upNextTetrominoes = [
       [1, displayWidth+1, displayWidth*2+1, 2], //lTetromino
+      [0, displayWidth+1, displayWidth*2+1, 1], //l2Tetromino
       [0, displayWidth, displayWidth+1, displayWidth*2+1], //zTetromino
+      [2, displayWidth+2, displayWidth+1, displayWidth*2+1], // z2Tetromino
       [1, displayWidth, displayWidth+1, displayWidth+2], //tTetromino
       [0, 1, displayWidth, displayWidth+1], //oTetromino
       [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1] //iTetromino
@@ -218,7 +238,7 @@ const zTetromino = [
         });
           score = 0;
           ScoreDisplay.innerHTML = score;
-          genTetromino();
+          newTetromino();
           draw();
           displayShape();
           resumeGame();
