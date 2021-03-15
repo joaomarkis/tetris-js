@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+body{
+  background-color:#c7c7c7 ;
+  background-image:url(../img/arcade-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.board {
+  height: 600px;
+  padding: -10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #18f03c -20%, #b005f3 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 50px;
+}
+h2{
+  font-weight: bold;
+  font-size: 32px;
+}
+
+
+
+.container {
+    display: flex;
+    padding: 10px;
+    
+  }
+
+
+.grid {
+    width: 300px;
+    height: 600px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border:1px solid darken;
+    box-shadow:inset 0 0 1px 1px rgb(231, 235, 231);
+}
+
+.grid div {
+    height: 30px;
+    width: 30px;
+
+
+}
+
+.mini-grid {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+  }
+  .mini-grid div {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .mini-grid-text{
+    height: 610px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #18f03c -20%, #b005f3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.tetromino {
+    background-color: blue;
+    border:1px solid darken;
+    box-shadow:inset 0 0 1px 1px rgb(231, 235, 231);
+  }
+.menu-control{
+  position:absolute;
+  top:30%;
+  left:32%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  
+}
+
+.menu-control > *{
+  margin: 5px;
+}
+  button {
+    width: 60px;
+    height: 60px;
+    border: 1px solid darken black;
+    border-radius: 5px;
+    z-index: 4;
+    outline: 0;
+    box-shadow: none !important;
+    background: linear-gradient(to right,#b005f3 -35%, #18f03c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+  }
+  #btn-start{
+    width: 120px;
+
+  }
+
+
